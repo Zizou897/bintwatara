@@ -1,0 +1,564 @@
+{% extends 'app/layout/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--  Accueil caroussel -->
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
+      <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for banners in get_banners %}
+          <div class="carousel-item {% if forloop.counter0 %}active{% endif %}">
+            <img class="w-100" src="{{banners.picture.url}}" alt="Image" />
+            <div class="carousel-caption">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-lg-10">
+                    <h5
+                      class="text-light text-uppercase mb-3 animated slideInDown"
+                    >
+                    {{banners.title}}
+                    </h5>
+                    <h1 class="display-2 text-light mb-3 animated slideInDown">
+                      {{banners.description}}
+                    </h1>
+                    {% comment "" %}{% endcomment %}
+                    <ol class="breadcrumb mb-4 pb-2">
+                      <li class="breadcrumb-item fs-5 text-light">
+                        Commercial
+                      </li>
+                      <li class="breadcrumb-item fs-5 text-light">
+                        Residential
+                      </li>
+                      <li class="breadcrumb-item fs-5 text-light">
+                        Industrial
+                      </li>
+                    </ol> {% comment "" %}
+                    <a href="" class="btn btn-primary py-3 px-5"
+                      >More Details</a
+                    >{% endcomment %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% comment "" %}<div class="carousel-item">
+            <img class="w-100" src="{% static 'app/img/carousel-2.jpg'%}" alt="Image" />
+            <div class="carousel-caption">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-lg-10">
+                    <h5
+                      class="text-light text-uppercase mb-3 animated slideInDown"
+                    >
+                      Welcome to Apex
+                    </h5>
+                    <h1 class="display-2 text-light mb-3 animated slideInDown">
+                      Professional Tiling & Painting Services
+                    </h1>
+                    <ol class="breadcrumb mb-4 pb-2">
+                      <li class="breadcrumb-item fs-5 text-light">
+                        Commercial
+                      </li>
+                      <li class="breadcrumb-item fs-5 text-light">
+                        Residential
+                      </li>
+                      <li class="breadcrumb-item fs-5 text-light">
+                        Industrial
+                      </li>
+                    </ol>
+                    <a href="" class="btn btn-primary py-3 px-5"
+                      >More Details</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>{% endcomment %}
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#header-carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#header-carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div
+              class="position-relative overflow-hidden ps-5 pt-5 h-100"
+              style="min-height: 400px"
+            >
+              <img
+                class="position-absolute w-100 h-100"
+                src="{{get_abouts.picture.url}}"
+                alt=""
+                style="object-fit: cover"
+              />
+              <div
+                class="position-absolute top-0 start-0 bg-white pe-3 pb-3"
+                style="width: 200px; height: 200px"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center text-center h-100 p-3" style=" background-color:  #7B3F00"
+                >
+                  <h1 class="text-white">{{get_abouts.experience}}</h1>
+                  <h2 class="text-white">ans</h2>
+                  <h5 class="text-white mb-0">d'expérience</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="h-100">
+              <div class="border-start border-5 ps-4 mb-5">
+                <h6 class="text-body text-uppercase mb-2">{{get_abouts.title}}</h6>
+                <h1 class="display-6 mb-0">
+                  {{get_configs_web.titleAbout1}}
+                </h1>
+              </div>
+              <p>
+                {{get_abouts.lebele | safe}}
+              </p> 
+              
+              <div class="border-top mt-4 pt-4">
+                <div class="row g-4">
+                  <div class="col-sm-4 d-flex wow fadeIn" data-wow-delay="0.1s">
+                    <i
+                      class="fa fa-check fa-2x flex-shrink-0 me-3" style="color: #7B3F00"
+                    ></i>
+                    <h6 class="mb-0">Ponctualité aux services</h6>
+                  </div>
+                  <div class="col-sm-4 d-flex wow fadeIn" data-wow-delay="0.3s">
+                    <i
+                      class="fa fa-check fa-2x flex-shrink-0 me-3" style="color: #7B3F00"
+                    ></i>
+                    <h6 class="mb-0">Service 24h/24 et 7j/7</h6>
+                  </div>
+                  <div class="col-sm-4 d-flex wow fadeIn" data-wow-delay="0.5s">
+                    <i
+                      class="fa fa-check fa-2x flex-shrink-0 me-3" style="color: #7B3F00"
+                    ></i>
+                    <h6 class="mb-0">Professionnels vérifiés</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+
+    <!-- process  Start -->
+    <div class="container-fluid my-5 p-0">
+      <div class="row g-0">
+        {% for process in get_process_constructions %}
+        <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.{{process.order}}s">
+          <div class="position-relative">
+            <img class="img-fluid w-100" src="{{process.picture.url}}" alt="" />
+            <div class="facts-overlay">
+              <h1 class="display-1 display-process">0{{process.order}}</h1>
+              <h4 class="text-white mb-3">{{process.title}}</h4>
+              <p class="text-white">{{process.description}}</p>
+              {% comment "" %} <a class="text-white small" href=""
+                >READ MORE<i class="fa fa-arrow-right ms-3"></i
+              ></a>{% endcomment %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% comment "" %}
+        <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+          <div class="position-relative">
+            <img class="img-fluid w-100" src="{% static 'app/img/fact-2.jpg'%}" alt="" />
+            <div class="facts-overlay">
+              <h1 class="display-1">02</h1>
+              <h4 class="text-white mb-3">Mechanical</h4>
+              <p class="text-white">
+                Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
+                clita duo justo erat amet
+              </p>
+              <a class="text-white small" href=""
+                >READ MORE<i class="fa fa-arrow-right ms-3"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+          <div class="position-relative">
+            <img class="img-fluid w-100" src="{% static 'app/img/fact-3.jpg'%}" alt="" />
+            <div class="facts-overlay">
+              <h1 class="display-1">03</h1>
+              <h4 class="text-white mb-3">Architecture</h4>
+              <p class="text-white">
+                Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
+                clita duo justo erat amet
+              </p>
+              <a class="text-white small" href=""
+                >READ MORE<i class="fa fa-arrow-right ms-3"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+          <div class="position-relative">
+            <img class="img-fluid w-100" src="{% static 'app/img/fact-4.jpg'%}" alt="" />
+            <div class="facts-overlay">
+              <h1 class="display-1">04</h1>
+              <h4 class="text-white mb-3">Interior Design</h4>
+              <p class="text-white">
+                Aliqu diam amet diam et eos erat ipsum lorem stet lorem sit
+                clita duo justo erat amet
+              </p>
+              <a class="text-white small" href=""
+                >READ MORE<i class="fa fa-arrow-right ms-3"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+    <!-- process End -->
+
+    <!-- Features Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="border-start border-5 border-primary ps-4 mb-5">
+              <h6 class="text-body text-uppercase mb-2">{{get_abouts.title1}}</h6>
+              <h1 class="display-6 mb-0">
+               {{get_configs_web.titleAbout}}
+              </h1>
+            </div>
+            <p class="mb-5">
+              {{get_abouts.description | safe}}
+            </p>
+            <div class="row gy-5 gx-4">
+              {% for strong in get_companies_fea %}
+              <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="fa fa-check fa-2x flex-shrink-0 me-3" style="color: #7B3F00"></i>
+                  <h6 class="mb-0">{{strong.libele}}</h6>
+                </div>
+                <span>{{strong.description}}</span>
+              </div>
+              {% endfor %}
+              {% comment "" %}
+              <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+                <div class="d-flex align-items-center mb-3">
+                  <i
+                    class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"
+                  ></i>
+                  <h6 class="mb-0">25+ years of professional experience</h6>
+                </div>
+                <span
+                  >Magna sea eos sit dolor, ipsum amet ipsum lorem diam</span
+                >
+              </div>
+              <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                <div class="d-flex align-items-center mb-3">
+                  <i
+                    class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"
+                  ></i>
+                  <h6 class="mb-0">A large number of grateful customers</h6>
+                </div>
+                <span
+                  >Magna sea eos sit dolor, ipsum amet ipsum lorem diam</span
+                >
+              </div>
+              <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                <div class="d-flex align-items-center mb-3">
+                  <i
+                    class="fa fa-check fa-2x text-primary flex-shrink-0 me-3"
+                  ></i>
+                  <h6 class="mb-0">Always reliable and affordable prices</h6>
+                </div>
+                <span
+                  >Magna sea eos sit dolor, ipsum amet ipsum lorem diam</span
+                >
+              </div>
+              {% endcomment %}
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div
+              class="position-relative overflow-hidden ps-5 pt-5 h-100"
+              style="min-height: 400px"
+            >
+              <img
+                class="position-absolute w-100 h-100"
+                src="{{get_abouts.picture1.url}}"
+                alt=""
+                style="object-fit: cover"
+              />
+              <div
+                class="position-absolute top-0 start-0 bg-white pe-3 pb-3"
+                style="width: 200px; height: 200px"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center text-center h-100 p-3" style=" background-color:  #7B3F00"
+                >
+                  <h1 class="text-white">{{get_abouts.experience}}</h1>
+                  <h2 class="text-white">ans</h2>
+                  <h5 class="text-white mb-0">d'expérience</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Features End -->
+
+    <!-- Service Start -->
+    {% include "app/includes/_service.html" %}
+    
+    <!-- Service End -->
+
+    <!-- Appointment Start -->
+    <div
+      class="container-fluid appointment my-5 py-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-lg-5 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+            <div class="border-start border-5 border-color ps-4 mb-5">
+              <h6 class="text-white text-uppercase mb-2">Rendez-Vous(RDV)</h6>
+              <h1 class="display-6 text-white mb-0">
+                {{get_configs_web.titleRVD}}
+              </h1>
+            </div>
+            <p class="text-white mb-0">
+              {{get_configs_web.descriptionRDV}}
+            </p>
+          </div>
+          <div class="col-lg-7 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+            <form id="rdv" action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+              <div class="row g-3">   
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control bg-dark border-0"
+                      id="gname"
+                      placeholder="Gurdian Name"
+                      v-model="name"
+                    />
+                    <label for="gname">Nom & Prénom</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input
+                      type="email"
+                      class="form-control bg-dark border-0"
+                      id="gmail"
+                      placeholder="Gurdian Email"
+                      v-model="email"
+                    />
+                    <label for="gmail">Votre Email</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control bg-dark border-0"
+                      id="cname"
+                      placeholder="Child Name"
+                      v-model="phone"
+                    />
+                    <label for="cname">Téléphone</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control bg-dark border-0"
+                      id="cage"
+                      placeholder="Child Age"
+                      v-model="service"
+                    />
+                    <label for="cage">Type de Service</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea
+                      class="form-control bg-dark border-0"
+                      placeholder="Leave a message here"
+                      id="message"
+                      style="height: 100px"
+                      v-model="message"
+                    ></textarea>
+                    <label for="message">Message</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn y w-100 py-3"  style=" background-color: #FFE00E; color: black; border-color: #FFE00E" type="submit" @click.prevent="getRDV">
+                   Obtenir un RDV
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Appointment End -->
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5 align-items-end mb-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="border-start border-5 border-primary ps-4">
+              <h6 class="text-body text-uppercase mb-2">Notre équipe</h6>
+              <h1 class="display-6 mb-0">{{page.text_team_title}}</h1>
+            </div>
+          </div>
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <p class="mb-0">
+              {{get_configs_web.descriptionTeam}}
+            </p>
+          </div>
+        </div>
+        <div class="row g-4">
+          {% for team in get_teams %}
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="team-item position-relative">
+              <img class="img-fluid" src="{{team.picture.url}}" alt="" />
+              <div class="team-text bg-white p-4">
+                <h5>{{team.name}}</h5>
+                <span>{{team.work}}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% comment "" %}
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="team-item position-relative">
+              <img class="img-fluid" src="img/team-2.jpg" alt="" />
+              <div class="team-text bg-white p-4">
+                <h5>Full Name</h5>
+                <span>Engineer</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="team-item position-relative">
+              <img class="img-fluid" src="img/team-3.jpg" alt="" />
+              <div class="team-text bg-white p-4">
+                <h5>Full Name</h5>
+                <span>Engineer</span>
+              </div>
+            </div>
+          </div>{% endcomment %}
+        </div>
+      </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="border-start border-5 border-primary ps-4 mb-5">
+              <h6 class="text-body text-uppercase mb-2">Temoignage</h6>
+              <h1 class="display-6 mb-0">{{get_configs_web.titleTestimony}}</h1>
+            </div>
+            <p class="mb-4">
+              {{get_configs_web.descriptionTesti}}
+            </p>
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="fa fa-users fa-2x flex-shrink-0" style="color: #7B3F00"></i>
+                  <h1 class="ms-3 mb-0">123+</h1>
+                </div>
+                <h5 class="mb-0">Clients satisfaits</h5>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="fa fa-check fa-2x flex-shrink-0" style="color: #7B3F00"></i>
+                  <h1 class="ms-3 mb-0">123+</h1>
+                </div>
+                <h5 class="mb-0">Projets éffectués</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="owl-carousel testimonial-carousel">
+              {% for testimony in get_testimonies %}
+              <div class="testimonial-item">
+                <img
+                  class="img-fluid mb-4"
+                  src="{{testimony.picture.url}}"
+                  alt=""
+                />
+                <p class="fs-5">
+                  {{testimony.description}}
+                </p>
+                <div
+                  class="mb-3"
+                  style="width: 60px; height: 5px; background-color: #7B3F00;"
+                ></div>
+                <h5>{{testimony.name}}</h5>
+                <span>{{testimony.work}}</span>
+              </div>
+              {% endfor %}
+              {% comment "" %}
+              <div class="testimonial-item">
+                <img
+                  class="img-fluid mb-4"
+                  src="img/testimonial-2.jpg"
+                  alt=""
+                />
+                <p class="fs-5">
+                  Dolores sed duo clita tempor justo dolor et stet lorem kasd
+                  labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
+                  et labore et tempor diam tempor erat.
+                </p>
+                <div
+                  class="bg-primary mb-3"
+                  style="width: 60px; height: 5px"
+                ></div>
+                <h5>Client Name</h5>
+                <span>Profession</span>
+              </div>
+              {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial End -->
+
+ 
+    {% endblock content %}
